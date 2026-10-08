@@ -60,8 +60,6 @@ DES (Data Encryption Standard) preceded AES by about 25 years. Comparing the two
 | Decryption | Same circuit, subkeys in reverse order | Separate inverse operations (InvSubBytes, InvShiftRows, InvMixColumns) |
 | Brute-force cost | 2^56 keys, within reach of dedicated hardware | 2^128 keys or more, out of reach |
 
-![Feistel network (DES) next to substitution-permutation network (AES)](docs/images/feistel-vs-spn.png)
-
 ### Advantages of AES
 
 1. **Larger key space.** A 56-bit key falls to brute force. A 128-bit key does not, and 192 and 256 bits add more margin.
@@ -176,7 +174,7 @@ Implementations skip the math and use a 256-entry lookup table. The high hex dig
 
 *In the code:* `sub_bytes` and `const.S_BOX`.
 
-![SubBytes: each state byte passes through the S-box](docs/images/sub-bytes.png)
+![SubBytes: each state byte passes through the S-box](assets/images/subbytes.png)
 
 ### 3.5 ShiftRows
 
@@ -194,7 +192,7 @@ Formula: `s'[r][c] = s[r][(c + r) mod 4]`.
 
 *In the code:* `shift_rows`.
 
-![ShiftRows: rows rotate left by 0, 1, 2, and 3 positions](docs/images/shift-rows.png)
+![ShiftRows: rows rotate left by 0, 1, 2, and 3 positions](assets/images/shift-rows.png)
 
 ### 3.6 MixColumns
 
